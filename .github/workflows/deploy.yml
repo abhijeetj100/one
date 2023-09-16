@@ -14,11 +14,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          # cache: yarn
+          cache: yarn
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install Deps
-        run: yarn install
+        run: yarn install --frozen-lockfile # optional, --immutable
       - name: Build
         run: yarn build
       - name: Deploy
