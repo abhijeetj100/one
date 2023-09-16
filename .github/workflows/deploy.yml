@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          # cache: yarn
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Deps
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Deploy
+        run: yarn deploy
+        
