@@ -19,8 +19,9 @@ jobs:
           cache: yarn
       - name: Install Deps
         run: yarn install --frozen-lockfile # optional, --immutable
-      - name: Build
-        run: yarn build
+      # - name: Build
+      #   run: yarn build
+      # Build already being done in yarn deploy
       - name: Deploy
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/abhijeetj100/one.git
