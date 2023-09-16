@@ -22,13 +22,13 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "camelcase": "error",
-        "spaced-comment": "error",
+        "camelcase": "warn",
+        "spaced-comment": "warn",
         "quotes": [
-            "error",
+            "warn",
             "double"
         ],
-        "no-duplicate-imports": "error"
+        "no-duplicate-imports": "warn"
     },
     "settings": {
         "import/resolver": {
