@@ -22,5 +22,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Deploy
-        run: yarn deploy
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/abhijeetj100/one.git
+          yarn deploy -u "github-actions-bot <support+actions@github.com>"
         
