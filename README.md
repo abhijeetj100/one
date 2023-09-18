@@ -1,3 +1,9 @@
+[![pages-build-deployment](https://github.com/abhijeetj100/one/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/abhijeetj100/one/actions/workflows/pages/pages-build-deployment)
+
+[![Build](https://github.com/abhijeetj100/one/actions/workflows/build.yml/badge.svg)](https://github.com/abhijeetj100/one/actions/workflows/build.yml)
+
+[![Deploy](https://github.com/abhijeetj100/one/actions/workflows/deploy.yml/badge.svg)](https://github.com/abhijeetj100/one/actions/workflows/deploy.yml)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
