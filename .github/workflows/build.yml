@@ -3,6 +3,9 @@ name: Build
 on:
   push:
 
+env:
+  CI: false
+
 jobs:
   Build:
     runs-on: ubuntu-latest
