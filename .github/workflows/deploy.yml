@@ -9,6 +9,9 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
 
+env:
+  CI: false
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
