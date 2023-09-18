@@ -63,6 +63,7 @@ export class ProjectList extends React.Component<IProjectListProps, IProjectList
           onClose={this.handleClose}
         >
           <MenuItem onClick={() => this.onProjectSelect("bin2dec")}>Bin2Dec</MenuItem>
+          <MenuItem onClick={() => this.onProjectSelect("borderRadiusPreview")}>Border Radius Preview</MenuItem>
         </Menu>
       </>
     );

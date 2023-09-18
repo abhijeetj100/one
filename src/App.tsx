@@ -7,8 +7,10 @@ import "@fontsource/roboto/700.css";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { MainToolbar } from "./components/Maintoolbar";
 import Bin2Dec from "./components/beginner/Bin2dec";
+import BorderRadiusPreview from "./components/beginner/BorderRadiusPreview";
 const ProjectComponents: { [k: string]: JSX.Element } = {
   bin2dec: <Bin2Dec />,
+  borderRadiusPreview: <BorderRadiusPreview />,
   "": <>Hello World</>,
 };
 
