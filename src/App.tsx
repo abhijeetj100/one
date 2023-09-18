@@ -21,7 +21,6 @@ function App() {
   const [selectedProject, setSelectedProject] = useState("");
 
   const onProjectSelect = (projectName: string) => {
-    console.log("From App.tsx", projectName);
     setSelectedProject(projectName);
   };
   return (
@@ -32,37 +31,5 @@ function App() {
     </ThemeProvider>
   );
 }
-
-// class App extends React.Component {
-//   state = {
-//     theme: createTheme({
-//       palette: {
-//         mode: "dark",
-//       },
-//     }),
-//     counter: 1
-//   };
-
-//   onProjectSelect(e: React.MouseEvent<HTMLButtonElement>) {
-//     this.setState({
-//       counter: this.state.counter+1
-//     })
-//     console.log(e.currentTarget);
-//     console.log(this.state.counter);
-//   }
-
-//   render() {
-//     return (
-//       <ThemeProvider theme={this.state.theme}>
-//         <CssBaseline />
-//         {/* <> */}
-//         <MainToolbar onChange={this.onProjectSelect.bind(this)}/>
-//         <Bin2Dec />
-//         {/* </> */}
-
-//       </ThemeProvider>
-//     );
-//   }
-// }
 
 export default App;

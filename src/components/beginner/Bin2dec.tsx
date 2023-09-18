@@ -22,8 +22,6 @@ export default class Bin2Dec extends React.Component<IBin2DecProps, IBin2DecStat
     }
 
     const newDigit = newVal % 10;
-    console.log(val);
-    console.log(newDigit);
     if (newDigit != 0 && newDigit != 1) {
       return;
     }
@@ -39,16 +37,10 @@ export default class Bin2Dec extends React.Component<IBin2DecProps, IBin2DecStat
       ans += dig * mul;
       mul *= 2;
     }
-    console.log(ans);
     this.setState({
       decValue: ans,
     });
   };
-
-  // onlyOneZero = (e: React.FormEvent<HTMLInputElement>) => {
-  //   console.log((e.nativeEvent as InputEvent).data);
-  //   console.log(this.state.binvalue)
-  // }
 
   render() {
     return (
