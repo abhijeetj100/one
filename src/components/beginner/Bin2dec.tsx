@@ -1,6 +1,7 @@
-import { Container, Stack, TextField } from "@mui/material";
+import { Container, IconButton, Stack, TextField } from "@mui/material";
+import { ContentCopy as ContentCopyIcon } from "@mui/icons-material";
 import React from "react";
-
+import ClearIcon from "@mui/icons-material/Clear";
 interface IBin2DecProps {}
 
 interface IBin2DecState {
@@ -44,20 +45,39 @@ export default class Bin2Dec extends React.Component<IBin2DecProps, IBin2DecStat
 
   render() {
     return (
-      <Container>
+      <Container sx={{ height: "100%" }}>
         <Stack spacing={20}>
-          <TextField
-            value={this.state.binValue}
-            type="number"
-            label="Binary number"
-            onChange={(e) => this.convertBinToDec(e.target.value)}
-          ></TextField>
-          <TextField
-            type="text"
-            value={this.state.decValue}
-            label="Decimal number"
-            InputProps={{ readOnly: true }}
-          ></TextField>
+          <Stack direction="row" spacing={2}>
+            <TextField
+              value={this.state.binValue}
+              type="number"
+              label="Binary number"
+              size="small"
+              onChange={(e) => this.convertBinToDec(e.target.value)}
+              sx={{ flexGrow: 1 }}
+            ></TextField>
+            <IconButton onClick={() => this.convertBinToDec("")} color="info" size="small">
+              <ClearIcon />
+            </IconButton>
+          </Stack>
+          <Stack direction="row" spacing={2}>
+            <TextField
+              sx={{ flexGrow: 1 }}
+              type="text"
+              value={this.state.decValue}
+              label="Decimal number"
+              InputProps={{ readOnly: true }}
+              size="small"
+            ></TextField>
+
+            <IconButton
+              onClick={() => navigator.clipboard.writeText(this.state.decValue.toString())}
+              color="info"
+              size="small"
+            >
+              <ContentCopyIcon />
+            </IconButton>
+          </Stack>
         </Stack>
       </Container>
     );
