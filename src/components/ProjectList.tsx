@@ -8,23 +8,39 @@ interface IProjectListProps {
 }
 
 interface IProjectListState {
-  anchorEl: null | HTMLElement;
+  anchorElBeg: null | HTMLElement;
+  anchorElInt: null | HTMLElement;
+  anchorElAdv: null | HTMLElement;
 }
 
 export class ProjectList extends React.Component<IProjectListProps, IProjectListState> {
   state: IProjectListState = {
-    anchorEl: null,
+    anchorElBeg: null,
+    anchorElInt: null,
+    anchorElAdv: null,
   };
 
   onBeginnerClick(event: React.MouseEvent<HTMLButtonElement>) {
     this.setState({
-      anchorEl: event.currentTarget,
+      anchorElBeg: event.currentTarget,
+    });
+  }
+
+  onIntermediateClick(event: React.MouseEvent<HTMLButtonElement>) {
+    this.setState({
+      anchorElInt: event.currentTarget,
+    });
+  }
+
+  onAdvancedClick(event: React.MouseEvent<HTMLButtonElement>) {
+    this.setState({
+      anchorElAdv: event.currentTarget,
     });
   }
 
   handleClose = () => {
     this.setState({
-      anchorEl: null,
+      anchorElBeg: null,
     });
   };
 
@@ -33,8 +49,16 @@ export class ProjectList extends React.Component<IProjectListProps, IProjectList
     this.props.onProjectSelect(e);
   };
 
-  get open() {
-    return Boolean(this.state.anchorEl);
+  get openBeg() {
+    return Boolean(this.state.anchorElBeg);
+  }
+
+  get openInt() {
+    return Boolean(this.state.anchorElInt);
+  }
+
+  get openAdv() {
+    return Boolean(this.state.anchorElAdv);
   }
   render() {
     return (
@@ -44,26 +68,38 @@ export class ProjectList extends React.Component<IProjectListProps, IProjectList
           <Button
             variant="text"
             color="inherit"
-            endIcon={this.open ? <UpIcon /> : <DownIcon />}
+            endIcon={this.openBeg ? <UpIcon /> : <DownIcon />}
             onClick={this.onBeginnerClick.bind(this)}
           >
             Beginner
           </Button>
-          <Button variant="text" color="inherit" endIcon={<DownIcon />}>
+          <Button
+            variant="text"
+            color="inherit"
+            endIcon={this.openInt ? <UpIcon /> : <DownIcon />}
+            onClick={this.onIntermediateClick.bind(this)}
+          >
             Intermediate
           </Button>
-          <Button variant="text" color="inherit" endIcon={<DownIcon />}>
+          <Button
+            variant="text"
+            color="inherit"
+            endIcon={this.openAdv ? <UpIcon /> : <DownIcon />}
+            onClick={this.onAdvancedClick.bind(this)}
+          >
             Advanced
           </Button>
         </Stack>
         <Menu
           id="resources-menu"
-          anchorEl={this.state.anchorEl}
-          open={this.open}
+          anchorEl={this.state.anchorElBeg}
+          open={this.openBeg}
           onClose={this.handleClose}
         >
           <MenuItem onClick={() => this.onProjectSelect("bin2dec")}>Bin2Dec</MenuItem>
-          <MenuItem onClick={() => this.onProjectSelect("borderRadiusPreview")}>Border Radius Preview</MenuItem>
+          <MenuItem onClick={() => this.onProjectSelect("borderRadiusPreview")}>
+            Border Radius Preview
+          </MenuItem>
         </Menu>
       </>
     );

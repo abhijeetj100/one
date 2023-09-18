@@ -1,8 +1,6 @@
-import { AppBar, Button, IconButton, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import DownIcon from "@mui/icons-material/KeyboardArrowDown";
-import UpIcon from "@mui/icons-material/KeyboardArrowUp";
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { ProjectList } from "./ProjectList";
 
 interface IMainToolbarProps {
