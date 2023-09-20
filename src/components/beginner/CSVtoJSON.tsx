@@ -1,4 +1,4 @@
-import { Box, Button, Stack, TextareaAutosize, Typography } from "@mui/material";
+import { Button, Stack, TextareaAutosize, Typography } from "@mui/material";
 import { ChevronRight as RightIcon } from "@mui/icons-material";
 import { useState } from "react";
 
