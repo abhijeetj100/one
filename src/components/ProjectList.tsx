@@ -100,6 +100,7 @@ export class ProjectList extends React.Component<IProjectListProps, IProjectList
           <MenuItem onClick={() => this.onProjectSelect("borderRadiusPreview")}>
             Border Radius Preview
           </MenuItem>
+          <MenuItem onClick={() => this.onProjectSelect("csvToJson")}>CSV to JSON</MenuItem>
         </Menu>
       </>
     );

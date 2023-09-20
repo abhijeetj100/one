@@ -8,9 +8,11 @@ import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { MainToolbar } from "./components/Maintoolbar";
 import Bin2Dec from "./components/beginner/Bin2dec";
 import BorderRadiusPreview from "./components/beginner/BorderRadiusPreview";
+import { CSVtoJSON } from "./components/beginner/CSVtoJSON";
 const ProjectComponents: { [k: string]: JSX.Element } = {
   bin2dec: <Bin2Dec />,
   borderRadiusPreview: <BorderRadiusPreview />,
+  csvToJson: <CSVtoJSON />,
   "": <>Hello World</>,
 };
 
