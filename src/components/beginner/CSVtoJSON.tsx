@@ -1,6 +1,7 @@
 import { Button, Stack, TextareaAutosize, Typography } from "@mui/material";
 import { ChevronRight as RightIcon } from "@mui/icons-material";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export const CSVtoJSON = () => {
   const [csvData, setCsvData] = useState("");
@@ -8,6 +9,9 @@ export const CSVtoJSON = () => {
 
   const convert = () => {
     console.log(csvData);
+    toast("Converted CAV to JSON", {
+      type: "success",
+    });
   };
 
   return (

@@ -9,6 +9,9 @@ import { MainToolbar } from "./components/Maintoolbar";
 import Bin2Dec from "./components/beginner/Bin2dec";
 import BorderRadiusPreview from "./components/beginner/BorderRadiusPreview";
 import { CSVtoJSON } from "./components/beginner/CSVtoJSON";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 const ProjectComponents: { [k: string]: JSX.Element } = {
   bin2dec: <Bin2Dec />,
   borderRadiusPreview: <BorderRadiusPreview />,
@@ -32,6 +35,7 @@ function App() {
       <CssBaseline />
       <MainToolbar onChange={onProjectSelect} />
       <IsComponent componentName={selectedProject} />
+      <ToastContainer theme="dark" />
     </ThemeProvider>
   );
 }
