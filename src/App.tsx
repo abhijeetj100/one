@@ -1,0 +1,41 @@
+import { useState } from "react";
+import "./App.css";
+import {  CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
+import "react-toastify/dist/ReactToastify.css";
+import BorderRadiusPreview from "./beginner/BorderRadiusPreview";
+import Bin2Dec from "./beginner/Bin2dec";
+import { CSVtoJSON } from "./beginner/CSVtoJSON";
+import { ToastContainer } from "react-toastify";
+import { MainToolbar } from "./Maintoolbar";
+const ProjectComponents: { [k: string]: JSX.Element } = {
+  bin2dec: <Bin2Dec />,
+  borderRadiusPreview: <BorderRadiusPreview />,
+  csvToJson: <CSVtoJSON />,
+  "": <>Hello World</>,
+};
+function IsComponent({ componentName }: { componentName: string }) {
+  return ProjectComponents[componentName] || <></>;
+}
+function App() {
+  const [theme, setTheme] = useState(createTheme({ palette: { mode: "dark" } }));
+  const [selectedProject, setSelectedProject] = useState("");
+
+  const onProjectSelect = (projectName: string) => {
+    setSelectedProject(projectName);
+  };
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <MainToolbar onChange={onProjectSelect} />
+      <IsComponent componentName={selectedProject} />
+      <ToastContainer theme="dark" />
+    </ThemeProvider>
+  );
+}
+
+export default App;
