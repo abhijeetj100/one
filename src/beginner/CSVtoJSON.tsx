@@ -2,16 +2,36 @@ import { Button, Stack, TextareaAutosize, Typography } from "@mui/material";
 import { ChevronRight as RightIcon } from "@mui/icons-material";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import {parse} from "papaparse";
 
 export const CSVtoJSON = () => {
   const [csvData, setCsvData] = useState("");
   const [jsonData, setJsonData] = useState("");
 
+  const onEnterCsvData = (e: React.FormEvent<HTMLTextAreaElement>) => {
+    setCsvData(e.currentTarget.value);
+  }
+
   const convert = () => { 
-    console.log(csvData);
-    toast("Converted CAV to JSON", {
+    toast("Converted CSV to JSON", {
       type: "success",
     });
+
+    const convertedData = parse<string[]>(csvData);
+
+    const hdrs = convertedData.data[0];
+    const data = convertedData.data.slice(1);
+
+    const convertedJson: {[k: string]: string}[] = [];
+
+    for(const row of data){
+      const jsonData: {[k: string]: string} = {};
+      for(let i = 0; i<hdrs.length; i++){
+        jsonData[hdrs[i]] = row[i];
+      }
+      convertedJson.push(jsonData);
+    }
+    setJsonData(JSON.stringify(convertedJson, null, 2));
   };
 
   return (
@@ -29,9 +49,7 @@ export const CSVtoJSON = () => {
           </Typography>
           <TextareaAutosize
             value={csvData}
-            onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
-              setCsvData(e.currentTarget.value);
-            }}
+            onChange={onEnterCsvData}
             style={{
               borderRadius: 30,
               padding: 25,
@@ -54,9 +72,6 @@ export const CSVtoJSON = () => {
           </Typography>
           <TextareaAutosize
             value={jsonData}
-            onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
-              setJsonData(e.currentTarget.value);
-            }}
             style={{
               borderRadius: 30,
               padding: 25,
