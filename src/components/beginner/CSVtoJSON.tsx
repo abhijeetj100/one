@@ -2,7 +2,7 @@ import { Button, Stack, TextareaAutosize, Typography } from "@mui/material";
 import { ChevronRight as RightIcon } from "@mui/icons-material";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import {parse} from "papaparse";
+import { parse } from "papaparse";
 
 export const CSVtoJSON = () => {
   const [csvData, setCsvData] = useState("");
@@ -12,7 +12,7 @@ export const CSVtoJSON = () => {
     setCsvData(e.currentTarget.value);
   }
 
-  const convert = () => { 
+  const convert = () => {
     toast("Converted CSV to JSON", {
       type: "success",
     });
@@ -22,11 +22,11 @@ export const CSVtoJSON = () => {
     const hdrs = convertedData.data[0];
     const data = convertedData.data.slice(1);
 
-    const convertedJson: {[k: string]: string}[] = [];
+    const convertedJson: { [k: string]: string }[] = [];
 
-    for(const row of data){
-      const jsonData: {[k: string]: string} = {};
-      for(let i = 0; i<hdrs.length; i++){
+    for (const row of data) {
+      const jsonData: { [k: string]: string } = {};
+      for (let i = 0; i < hdrs.length; i++) {
         jsonData[hdrs[i]] = row[i];
       }
       convertedJson.push(jsonData);
