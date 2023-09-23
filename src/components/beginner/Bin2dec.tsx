@@ -2,7 +2,7 @@ import { Container, IconButton, Stack, TextField } from "@mui/material";
 import { ContentCopy as ContentCopyIcon } from "@mui/icons-material";
 import React from "react";
 import ClearIcon from "@mui/icons-material/Clear";
-interface IBin2DecProps { }
+interface IBin2DecProps {}
 
 interface IBin2DecState {
   binValue: string | number;

@@ -10,7 +10,7 @@ export const CSVtoJSON = () => {
 
   const onEnterCsvData = (e: React.FormEvent<HTMLTextAreaElement>) => {
     setCsvData(e.currentTarget.value);
-  }
+  };
 
   const convert = () => {
     toast("Converted CSV to JSON", {

@@ -6,7 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
@@ -23,9 +23,9 @@ module.exports = {
       "double"
   ],
   "no-duplicate-imports": "warn",
-        "@typescript-eslint/no-unused-vars": "off",
-        "prefer-const": "warn",
-        "@typescript-eslint/no-explicit-any": "warn",
-        "@typescript-eslint/ban-ts-comment": "warn"
+  "@typescript-eslint/no-unused-vars": "off",
+  "prefer-const": "warn",
+  "@typescript-eslint/no-explicit-any": "warn",
+  "@typescript-eslint/ban-ts-comment": "warn"
   },
 }
