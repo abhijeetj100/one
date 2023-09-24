@@ -26,6 +26,7 @@ module.exports = {
   "@typescript-eslint/no-unused-vars": "off",
   "prefer-const": "warn",
   "@typescript-eslint/no-explicit-any": "warn",
-  "@typescript-eslint/ban-ts-comment": "warn"
+  "@typescript-eslint/ban-ts-comment": "warn",
+  "@typescript-eslint/ban-types": "warn"
   },
 }

@@ -101,6 +101,7 @@ export class ProjectList extends React.Component<IProjectListProps, IProjectList
             Border Radius Preview
           </MenuItem>
           <MenuItem onClick={() => this.onProjectSelect("csvToJson")}>CSV to JSON</MenuItem>
+          <MenuItem onClick={() => this.onProjectSelect("calculator")}>Calculator</MenuItem>
         </Menu>
       </>
     );
