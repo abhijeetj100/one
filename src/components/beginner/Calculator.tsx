@@ -107,6 +107,14 @@ export const Calculator = () => {
         setResult(tempResult / currentNumber);
         setCurrentNumber(0);
         break;
+      case Operation.perc:
+        setResult(tempResult / 100);
+        setCurrentNumber(0);
+        break;
+      case Operation.invertSign:
+        setResult(tempResult * -1);
+        setCurrentNumber(0);
+        break;
     }
   };
 
